@@ -1,50 +1,5 @@
 // Wait for DOM to load
 document.addEventListener("DOMContentLoaded", () => {
-    
-    // --- Custom Cursor ---
-    const cursorDot = document.querySelector('.cursor-dot');
-    const cursorOutline = document.querySelector('.cursor-outline');
-
-    window.addEventListener('mousemove', (e) => {
-        const posX = e.clientX;
-        const posY = e.clientY;
-        
-        cursorDot.style.left = `${posX}px`;
-        cursorDot.style.top = `${posY}px`;
-        
-        cursorOutline.animate({
-            left: `${posX}px`,
-            top: `${posY}px`
-        }, { duration: 500, fill: "forwards" });
-    });
-
-    document.querySelectorAll('a, button, .waste-item, .faq-item, input, textarea').forEach(el => {
-        el.addEventListener('mouseenter', () => cursorOutline.classList.add('hover-active'));
-        el.addEventListener('mouseleave', () => cursorOutline.classList.remove('hover-active'));
-    });
-
-    // --- Floating Particles Array ---
-    const particlesContainer = document.getElementById('particles-container');
-    if (particlesContainer) {
-        for (let i = 0; i < 25; i++) {
-            let particle = document.createElement('div');
-            particle.classList.add('particle');
-            
-            // Randomize properties for natural floating
-            let size = Math.random() * 8 + 4;
-            let left = Math.random() * 100;
-            let duration = Math.random() * 15 + 10;
-            let delay = Math.random() * 15;
-            
-            particle.style.width = `${size}px`;
-            particle.style.height = `${size}px`;
-            particle.style.left = `${left}vw`;
-            particle.style.animationDuration = `${duration}s`;
-            particle.style.animationDelay = `-${delay}s`;
-            
-            particlesContainer.appendChild(particle);
-        }
-    }
 
     // --- Button Ripple Effects ---
     document.querySelectorAll('.scroll-btn, .submit-btn').forEach(btn => {
