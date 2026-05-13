@@ -3,128 +3,335 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Recycle Bin | AI-Driven IoT System</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Using Font Awesome for icons -->
+    <title>Smart Recycle Bin</title>
+    <!-- Title Image / Favicon -->
+    <link rel="icon" type="image/png" href="title-image.png">
+    <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // Initiate EmailJS with your Public Key here
+            emailjs.init("YOUR_PUBLIC_KEY");
+        })();
+    </script>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
 
-    <!-- Navigation -->
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <!-- Floating Background Particles -->
+    <div id="particles-container"></div>
+
+    <!-- Floating Background Effects -->
+    <div class="bg-blobs">
+        <div class="blob shape1"></div>
+        <div class="blob shape2"></div>
+        <div class="blob shape3"></div>
+    </div>
+
+    <!-- Sticky Navigation -->
     <nav id="navbar">
-        <div class="container nav-container">
-            <h1 class="logo">Eco<span class="highlight">Bin</span></h1>
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-recycle glowing-icon"></i> EcoBin
+            </div>
             <ul class="nav-links">
                 <li><a href="#hero">Home</a></li>
-                <li><a href="#system">System</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
                 <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
     </nav>
 
     <!-- Hero / Problem Section -->
     <section id="hero" class="hero-section">
-        <div class="background-effects">
-            <div class="blob blob-1"></div>
-            <div class="blob blob-2"></div>
+        <div class="hero-content">
+            <h1 class="title">SMART RECYCLE BIN</h1>
+            <h2 class="subtitle">AN AI-DRIVEN IOT SYSTEM FOR AUTOMATED WASTE CLASSIFICATION</h2>
+            
+            <p class="hero-text">
+                Incorrect waste sorting is one of the biggest environmental challenges affecting recycling efficiency worldwide. Large amounts of recyclable waste become contaminated due to human mistakes during waste disposal, causing more landfill pollution and environmental damage. Plastic waste burning also contributes to air pollution and ozone layer damage.
+            </p>
+            <p class="hero-text">
+                This project introduces an intelligent AI-driven recycling system that automatically classifies waste into paper, plastic, and metal categories using computer vision, IoT technologies, and automated mechanical control.
+            </p>
+            
+            <a href="#about" class="scroll-btn">Discover More</a>
         </div>
-        <div class="container hero-content reveal">
-            <h1 class="main-title">SMART RECYCLE BIN: <br><span class="gradient-text">AN AI-DRIVEN IOT SYSTEM FOR AUTOMATED WASTE CLASSIFICATION</span></h1>
-            <p class="subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            <a href="#system" class="btn btn-primary">Learn More <i class="fas fa-arrow-right"></i></a>
+        
+        <!-- Animated Background Elements -->
+        <div class="ambient-light parallax" data-speed="-5"></div>
+        <div class="glowing-recycle-icon parallax" data-speed="8">
+            <i class="fas fa-recycle"></i>
         </div>
     </section>
 
     <!-- System Introduction Section -->
-    <section id="system" class="system-section">
-        <div class="container section-header reveal">
-            <h2>System Introduction</h2>
-            <div class="underline"></div>
+    <section id="about" class="about-section hidden">
+        <div class="about-container">
+            <div class="about-text glassmorphism">
+                <h2>About The System</h2>
+                <p>
+                    The Smart Recycle Bin uses Artificial Intelligence and IoT technologies to automate waste sorting. The system uses a Raspberry Pi 4, camera module, ultrasonic sensors, servo motor, and stepper motor integrated with the YOLO11 object detection model.
+                </p>
+                <p>
+                    When waste is placed into the system, the camera captures the object and the YOLO11 model classifies it as paper, plastic, or metal. The internal rotating mechanism then moves the correct compartment under the gate before automatically dropping the waste into the selected bin.
+                </p>
+                <p>
+                    The system also checks the fill level of the selected compartment before opening the gate to prevent overflow and improve recycling efficiency.
+                </p>
+            </div>
+            <div class="about-image">
+                <img src="./smart-image.png" alt="Smart Recycle Bin System" class="glassmorphism" style="width: 100%; max-width: 400px; height: auto;">
+            </div>
         </div>
-        <div class="container system-container reveal">
-            <div class="system-text">
-                <h3>Lorem Ipsum Dolor Sit Amet</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor.</p>
-                <div class="features-list">
-                    <div class="feature-item">
-                        <div class="icon-box"><i class="fas fa-brain"></i></div>
-                        <div>
-                            <h4>Placeholder Feature 1</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur.</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="icon-box"><i class="fas fa-microchip"></i></div>
-                        <div>
-                            <h4>Placeholder Feature 2</h4>
-                            <p>Adipiscing elit pellentesque habitant morbi.</p>
-                        </div>
-                    </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="works-section hidden">
+        <h2>How It Works</h2>
+        <div class="cards-container">
+            <!-- Card 1 -->
+            <div class="card glassmorphism">
+                <i class="fas fa-wave-square card-icon"></i>
+                <h3>Waste Detection</h3>
+                <p>Ultrasonic sensors detect when waste is placed near the system entrance.</p>
+            </div>
+            <!-- Card 2 -->
+            <div class="card glassmorphism">
+                <i class="fas fa-brain card-icon"></i>
+                <h3>AI Classification</h3>
+                <p>The YOLO11 AI model analyzes the object and classifies it into paper, plastic, or metal.</p>
+            </div>
+            <!-- Card 3 -->
+            <div class="card glassmorphism">
+                <i class="fas fa-sync card-icon"></i>
+                <h3>Automatic Rotation</h3>
+                <p>The stepper motor rotates the correct compartment into position.</p>
+            </div>
+            <!-- Card 4 -->
+            <div class="card glassmorphism">
+                <i class="fas fa-box-open card-icon"></i>
+                <h3>Smart Disposal</h3>
+                <p>The servo motor opens the gate and drops the waste into the correct compartment.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Waste Sorting Simulation Section -->
+    <section id="simulation" class="simulation-section hidden">
+        <h2>AI Waste Sorting Simulation</h2>
+        <p class="sim-subtitle">Select a waste object below to test the AI detection model and mechanical sorting.</p>
+        
+        <div class="sim-container">
+            <!-- Waste Selection Cards -->
+            <div class="waste-selector">
+                <div class="waste-item glassmorphism" data-type="Plastic">
+                    <img src="./plastic-image.png" alt="Plastic Object">
+                    <p>Plastic Bottle</p>
+                </div>
+                <div class="waste-item glassmorphism" data-type="Plastic">
+                    <img src="./sucker-image.png" alt="Plastic Sucker">
+                    <p>Plastic Sucker</p>
+                </div>
+                <div class="waste-item glassmorphism" data-type="Metal">
+                    <img src="./metal-image.png" alt="Metal Object">
+                    <p>Soda Can</p>
+                </div>
+                <div class="waste-item glassmorphism" data-type="Metal">
+                    <img src="./Aluminium-image.png" alt="Aluminium Foil">
+                    <p>Aluminium Foil</p>
+                </div>
+                <div class="waste-item glassmorphism" data-type="Paper">
+                    <img src="./paper-image.png" alt="Paper Object">
+                    <p>Crumpled Paper</p>
+                </div>
+                <div class="waste-item glassmorphism" data-type="Paper">
+                    <img src="./Juice-image.png" alt="Juice Carton">
+                    <p>Juice Carton</p>
                 </div>
             </div>
-            <div class="system-image">
-                <div class="glass-card image-placeholder">
-                    <i class="fas fa-recycle image-icon"></i>
-                    <p>System Image / 3D Model Placeholder</p>
+
+            <!-- Simulation Display -->
+            <div class="sim-display glassmorphism">
+                <div class="status-panel">
+                    <i class="fas fa-microchip status-icon"></i>
+                    <span id="ai-status">System Ready. Awaiting object...</span>
+                </div>
+                
+                <div class="bin-simulation">
+                    <!-- The object that drops into the bin -->
+                    <div id="simulated-object" class="simulated-object"><i class="fas fa-trash-alt"></i></div>
+                    
+                    <!-- AI Scanning Beam -->
+                    <div id="ai-scanner" class="ai-scanner hidden-element"></div>
+                    
+                    <!-- The mechanical Bin structure -->
+                    <div class="bin-chute">
+                        <div id="bin-gate" class="bin-gate"></div>
+                    </div>
+                    
+                    <div class="bin-platform-container">
+                        <!-- Internal rotating platform -->
+                        <div id="bin-platform" class="bin-platform">
+                            <div class="compartment comp-plastic"><span>Plastic</span></div>
+                            <div class="compartment comp-metal"><span>Metal</span></div>
+                            <div class="compartment comp-paper"><span>Paper</span></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- FAQ Section -->
-    <section id="faq" class="faq-section">
-        <div class="container section-header reveal">
-            <h2>Frequently Asked Questions</h2>
-            <div class="underline"></div>
-        </div>
-        <div class="container faq-container reveal">
-            <div class="accordion">
-                <!-- FAQ Item 1 -->
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        Question 1 placeholder text here? <i class="fas fa-chevron-down icon"></i>
-                    </button>
-                    <div class="accordion-content">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.</p>
-                    </div>
+    <section id="faq" class="faq-section hidden">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-container">
+            <!-- FAQ 1 -->
+            <div class="faq-item glassmorphism">
+                <div class="faq-question">
+                    <h3>What technologies are used in this project?</h3>
+                    <i class="fas fa-chevron-down"></i>
                 </div>
-                <!-- FAQ Item 2 -->
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        Question 2 placeholder text here? <i class="fas fa-chevron-down icon"></i>
-                    </button>
-                    <div class="accordion-content">
-                        <p>Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </div>
+                <div class="faq-answer">
+                    <p>The project uses Artificial Intelligence, IoT, Raspberry Pi 4, YOLO11 object detection, ultrasonic sensors, stepper motors, servo motors, Python.</p>
                 </div>
-                <!-- FAQ Item 3 -->
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        Question 3 placeholder text here? <i class="fas fa-chevron-down icon"></i>
-                    </button>
-                    <div class="accordion-content">
-                        <p>Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.</p>
-                    </div>
+            </div>
+            <!-- FAQ 2 -->
+            <div class="faq-item glassmorphism">
+                <div class="faq-question">
+                    <h3>What waste categories does the system support?</h3>
+                    <i class="fas fa-chevron-down"></i>
                 </div>
-                <!-- FAQ Item 4 -->
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        Question 4 placeholder text here? <i class="fas fa-chevron-down icon"></i>
-                    </button>
-                    <div class="accordion-content">
-                        <p>Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique cursus. Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi.</p>
-                    </div>
+                <div class="faq-answer">
+                    <p>The system currently supports paper, plastic, and metal waste classification.</p>
+                </div>
+            </div>
+            <!-- FAQ 3 -->
+            <div class="faq-item glassmorphism">
+                <div class="faq-question">
+                    <h3>How does the smart bin detect waste?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Ultrasonic sensors detect nearby objects and trigger the camera to begin classification.</p>
+                </div>
+            </div>
+            <!-- FAQ 4 -->
+            <div class="faq-item glassmorphism">
+                <div class="faq-question">
+                    <h3>Why was YOLO11 selected?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>YOLO11 provides fast and accurate real-time object detection suitable for embedded AI systems.</p>
+                </div>
+            </div>
+            <!-- FAQ 5 -->
+            <div class="faq-item glassmorphism">
+                <div class="faq-question">
+                    <h3>What is the main goal of this project?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>The goal is to reduce human sorting errors, improve recycling efficiency, and support environmental sustainability using AI and IoT technologies.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Smart Recycle Bin Project. All rights reserved.</p>
-        </div>
-    </footer>
+    <!-- Team / Credits Section -->
+    <section id="team" class="team-section hidden">
+        <p class="sim-subtitle team-small-title">PROJECT TEAM</p>
+        
+        <div class="team-container">
+            <!-- Supervisor Card -->
+            <div class="team-card supervisor-card glassmorphism">
+                <div class="card-glow"></div>
+                <div class="team-icon">
+                    <i class="fas fa-chalkboard-teacher glowing-icon"></i>
+                </div>
+                <h3>Dr. Jalal Mohamed Mufleh Khlaifat</h3>
+                <p class="team-role">Academic Supervisor</p>
+                <div class="card-divider"></div>
+                
+                <!-- Animated particles inside card -->
+                <div class="card-particles">
+                    <div class="cp cp1"></div>
+                    <div class="cp cp2"></div>
+                    <div class="cp cp3"></div>
+                </div>
+            </div>
 
-    <script src="script.js"></script>
+            <!-- Team Members -->
+            <div class="team-members">
+                <div class="team-card member-card glassmorphism">
+                    <div class="card-glow"></div>
+                    <div class="team-icon">
+                        <i class="fas fa-user-graduate glowing-icon"></i>
+                    </div>
+                    <h3>Ali Alqatrawi</h3>
+                    <p class="team-role">Team Member</p>
+                    <div class="card-divider"></div>
+                </div>
+
+                <div class="team-card member-card glassmorphism">
+                    <div class="card-glow"></div>
+                    <div class="team-icon">
+                        <i class="fas fa-user-graduate glowing-icon"></i>
+                    </div>
+                    <h3>Ali Alaali</h3>
+                    <p class="team-role">Team Member</p>
+                    <div class="card-divider"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section hidden">
+        <div class="contact-header">
+            <p class="sim-subtitle">GET IN TOUCH</p>
+            <h2>Ready to Build a Smarter and Greener Future?</h2>
+            <p class="contact-desc">
+                Discover how SMART RECYCLE BIN can support intelligent waste management and environmental sustainability through AI-driven recycling solutions. Whether you have questions, ideas, or collaboration opportunities, our team is ready to help.
+            </p>
+        </div>
+        
+        <div class="contact-container glassmorphism">
+            <form id="contact-form" class="contact-form">
+                <div class="input-group">
+                    <input type="text" id="user_name" name="user_name" required placeholder="Full Name">
+                </div>
+                <div class="input-group">
+                    <input type="email" id="user_email" name="user_email" required placeholder="Email Address">
+                </div>
+                <div class="input-group">
+                    <textarea id="message" name="message" rows="5" required placeholder="Message"></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn" id="submit-btn">
+                    <span class="btn-text">Send Message</span>
+                    <i class="fas fa-spinner fa-spin loader hidden-element"></i>
+                </button>
+                <div id="form-message" class="form-message hidden-element"></div>
+            </form>
+        </div>
+    </section>
+
+    <script src="./script.js"></script>
 </body>
 </html>
