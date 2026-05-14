@@ -17,6 +17,57 @@
     font-family: 'Roboto', sans-serif;
 }
 
+/* Floating Particles Container */
+#particles-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+/* Falling Nature Leaves */
+.leaf-particle {
+    position: absolute;
+    top: -50px;
+    background: linear-gradient(135deg, rgba(0, 255, 136, 0.7), rgba(10, 80, 40, 0.3));
+    border-radius: 0 50% 0 50%; /* Leaf shape */
+    opacity: 0;
+    animation: leafDrift linear infinite;
+    filter: drop-shadow(0 0 5px rgba(0, 255, 136, 0.2));
+}
+
+@keyframes leafDrift {
+    0% { top: -50px; transform: translateX(0) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.6; }
+    50% { transform: translateX(40px) rotate(180deg); }
+    90% { opacity: 0.6; }
+    100% { top: 100vh; transform: translateX(-40px) rotate(360deg); opacity: 0; }
+}
+
+/* Rising Ozone/Atmosphere Bubbles */
+.ozone-particle {
+    position: absolute;
+    bottom: -50px;
+    background: radial-gradient(circle, rgba(0, 229, 255, 0.6) 0%, transparent 70%);
+    border-radius: 50%;
+    opacity: 0;
+    filter: blur(2px);
+    animation: ozoneRise linear infinite;
+    box-shadow: 0 0 15px rgba(0, 229, 255, 0.3);
+}
+
+@keyframes ozoneRise {
+    0% { bottom: -50px; transform: translateX(0) scale(0.5); opacity: 0; }
+    20% { opacity: 0.5; }
+    50% { transform: translateX(-30px) scale(1.2); }
+    80% { opacity: 0.5; }
+    100% { bottom: 100vh; transform: translateX(30px) scale(0.8); opacity: 0; }
+}
+
 /* Background Blobs */
 .bg-blobs {
     position: fixed;
@@ -31,40 +82,40 @@
 
 .blob {
     position: absolute;
-    filter: blur(90px);
-    opacity: 0.4;
-    animation: floatBlob 20s infinite ease-in-out alternate;
+    filter: blur(120px);
+    opacity: 0.35;
+    animation: floatBlob 25s infinite ease-in-out alternate;
 }
 
 .shape1 {
-    width: 400px;
-    height: 400px;
-    background: var(--dark-green);
-    top: 10%;
-    left: 10%;
+    width: 500px;
+    height: 500px;
+    background: rgba(0, 255, 136, 0.15); /* Nature Green */
+    top: 5%;
+    left: 5%;
 }
 
 .shape2 {
-    width: 500px;
-    height: 500px;
-    background: rgba(0, 255, 136, 0.2);
-    bottom: -10%;
-    right: 5%;
+    width: 600px;
+    height: 600px;
+    background: rgba(0, 229, 255, 0.15); /* Ozone Cyan Layer */
+    bottom: -15%;
+    right: 0%;
     animation-delay: -5s;
 }
 
 .shape3 {
-    width: 300px;
-    height: 300px;
-    background: #0f3d24;
-    top: 40%;
-    left: 50%;
+    width: 400px;
+    height: 400px;
+    background: rgba(10, 41, 24, 0.4); /* Deep Forest Shadow */
+    top: 30%;
+    left: 40%;
     animation-delay: -10s;
 }
 
 @keyframes floatBlob {
-    0% { transform: translate(0, 0) scale(1); }
-    100% { transform: translate(50px, 50px) scale(1.1); }
+    0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+    100% { transform: translate(60px, 40px) scale(1.1) rotate(10deg); }
 }
 
 body {
@@ -163,9 +214,18 @@ p {
 }
 
 .logo {
-    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2rem;
     font-weight: 700;
     animation: logoGlow 3s ease-in-out infinite alternate;
+}
+
+.logo-img {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
 }
 
 @keyframes logoGlow {

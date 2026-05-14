@@ -1,6 +1,49 @@
 // Wait for DOM to load
 document.addEventListener("DOMContentLoaded", () => {
 
+    // --- Floating Nature & Ozone Particles Array ---
+    const particlesContainer = document.getElementById('particles-container');
+    if (particlesContainer) {
+        
+        // 1. Create Drifting Nature Leaves
+        for (let i = 0; i < 15; i++) {
+            let leaf = document.createElement('div');
+            leaf.classList.add('leaf-particle');
+            
+            let size = Math.random() * 15 + 10;
+            let left = Math.random() * 100;
+            let duration = Math.random() * 15 + 15; // Slow drift
+            let delay = Math.random() * 20;
+            
+            leaf.style.width = `${size}px`;
+            leaf.style.height = `${size}px`;
+            leaf.style.left = `${left}vw`;
+            leaf.style.animationDuration = `${duration}s`;
+            leaf.style.animationDelay = `-${delay}s`;
+            
+            particlesContainer.appendChild(leaf);
+        }
+
+        // 2. Create Rising Ozone Bubbles
+        for (let j = 0; j < 15; j++) {
+            let ozone = document.createElement('div');
+            ozone.classList.add('ozone-particle');
+            
+            let size = Math.random() * 10 + 5;
+            let left = Math.random() * 100;
+            let duration = Math.random() * 20 + 20; // Very slow rise
+            let delay = Math.random() * 20;
+            
+            ozone.style.width = `${size}px`;
+            ozone.style.height = `${size}px`;
+            ozone.style.left = `${left}vw`;
+            ozone.style.animationDuration = `${duration}s`;
+            ozone.style.animationDelay = `-${delay}s`;
+            
+            particlesContainer.appendChild(ozone);
+        }
+    }
+
     // --- Button Ripple Effects ---
     document.querySelectorAll('.scroll-btn, .submit-btn').forEach(btn => {
         btn.addEventListener('click', function(e) {
