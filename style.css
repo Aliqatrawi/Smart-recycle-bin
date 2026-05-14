@@ -219,13 +219,16 @@ p {
     gap: 10px;
     font-size: 1.2rem;
     font-weight: 700;
+    white-space: nowrap; /* Prevent text wrapping */
     animation: logoGlow 3s ease-in-out infinite alternate;
 }
 
 .logo-img {
-    height: 40px;
+    max-height: 40px;
     width: auto;
     object-fit: contain;
+    flex-shrink: 0; /* Prevents stretching/squishing in flex container */
+    display: block;
 }
 
 @keyframes logoGlow {
